@@ -316,3 +316,11 @@ h1, h2, h3, h4, h5, h6 {
 .tpprduct-arrow.tpvegetable-btn__nxt i::before {
   transform: translateX(-2px) rotate(45deg);
 }
+
+/* product card thumbnails: source photos have different aspect ratios
+   (e.g. Indian Cherry is a tall portrait shot vs Dragon Fruit's square
+   crop) — fix every thumbnail to the same height so cards line up. */
+.tpproduct__thumb img {
+  height: 180px;
+  object-fit: cover;
+}
