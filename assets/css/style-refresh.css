@@ -270,19 +270,49 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--tp-heading-secondary);
 }
 
-/* product/vegetable carousels: nav arrows were hover-only, so on touch
-   devices (no hover) there was no visible way to reach the other slides */
+/* product/vegetable carousels on mobile:
+   1) nav arrows were hover-only, invisible on touch devices
+   2) they were absolutely-positioned on top of the card image/link, so
+      taps landed on the product link underneath instead of the arrow
+   Fix: take them out of the card entirely and lay them out as a plain
+   button row below the slide — no overlap, nothing to intercept taps. */
 @media (max-width: 991px) {
+  .tpproduct-btn {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 14px;
+  }
   .tpprduct-arrow {
+    position: static;
     opacity: 1;
     visibility: visible;
-    left: 5px;
-  }
-  .tpprduct-arrow.tpproduct-btn__nxt {
-    left: auto;
-    right: 5px;
+    transform: none;
   }
   .tpprduct-arrow i {
-    opacity: 0.9;
+    opacity: 1;
   }
+}
+
+/* simple, dependency-free chevron (icon font glyph wasn't reliable) */
+.tpprduct-arrow i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tpprduct-arrow i::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid var(--tp-common-white);
+  border-right: 2px solid var(--tp-common-white);
+}
+.tpprduct-arrow.tpproduct-btn__prv i::before,
+.tpprduct-arrow.tpvegetable-btn__prv i::before {
+  transform: translateX(2px) rotate(-135deg);
+}
+.tpprduct-arrow.tpproduct-btn__nxt i::before,
+.tpprduct-arrow.tpvegetable-btn__nxt i::before {
+  transform: translateX(-2px) rotate(45deg);
 }
