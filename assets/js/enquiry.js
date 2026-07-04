@@ -13,7 +13,7 @@
 // bound to the client's sheet, paste the same doPost() code, deploy as a
 // Web App the same way, and replace the URL below with the new one.
 // Nothing else in this file needs to change.
-var ENQUIRY_SHEET_URL = "https://script.google.com/macros/s/AKfycbxkuilTml1rWE28OhB_NGyHTLr2_-Yhh0JrPoFVmcK9KZq4nGhvjvQQC-Wh799KIX2d/exec";
+var ENQUIRY_SHEET_URL = "https://script.google.com/macros/s/AKfycbzP4sx13y_v86tAyizNclpx4u_JAWYN_ceohXo_gF59vM2J2lfCHTXizKZogyiQXPxr/exec";
 
 (function () {
 	var form = document.getElementById("enquiryForm");
