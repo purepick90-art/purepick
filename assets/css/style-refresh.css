@@ -269,3 +269,20 @@ h1, h2, h3, h4, h5, h6 {
 .tpfooter__widget-title {
   color: var(--tp-heading-secondary);
 }
+
+/* product/vegetable carousels: nav arrows were hover-only, so on touch
+   devices (no hover) there was no visible way to reach the other slides */
+@media (max-width: 991px) {
+  .tpprduct-arrow {
+    opacity: 1;
+    visibility: visible;
+    left: 5px;
+  }
+  .tpprduct-arrow.tpproduct-btn__nxt {
+    left: auto;
+    right: 5px;
+  }
+  .tpprduct-arrow i {
+    opacity: 0.9;
+  }
+}
